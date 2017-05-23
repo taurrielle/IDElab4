@@ -1,0 +1,34 @@
+<template name="SideNav">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		     	</button>
+
+ 				<a class="navbar-brand" href="/">My recipes</a>
+			</div>
+			
+			<div class="collapse navbar-collapse" id="navbar">
+				{{#if currentUser}}
+					<ul class="nav navbar-nav">
+						<li class="{{ isActiveRoute regex='recipe-book' }}"><a data-toggle="collapse" data-target=".in" href="/recipe-book">Recipe Book</a></li>
+						<li class="{{ isActiveRoute regex='menu' }}"><a data-toggle="collapse" data-target=".in" href="/menu"> Menu </a></li>
+						<li class="{{ isActiveRoute regex='shopping-list' }}"><a data-toggle="collapse" data-target=".in" href="/shopping-list">Shopping List</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+	         			<li>{{> loginButtons}}</li>
+					</ul>
+				{{else}}
+					<ul class="nav navbar-nav navbar-right">
+					<li>{{> loginButtons}}</li>
+					</ul>
+				{{/if}}
+   			</div>
+		</div>
+	</nav>
+</template>
